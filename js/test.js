@@ -1,13 +1,25 @@
-function add(a, b, c) {
-  // Change code below this line
 
-return a + b + c;
+const timer = {
+  start() {
+    const startTime = Date.now();
 
-  // Change code above this line
-}
+    setInterval(() => {
+      const currentTime = Date.now();
+      // console.log("текущее время:", currentTime);
+ console.log(currentTime - startTime);
+    }, 1000);
+   
+  },
+ 
+};
+timer.start();
 
-add(2, 5, 8); // 15
+  getTimeComponents(time) {
+    const hours = this.pad(
+      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    );
+    const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+    const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
 
-console.log(add(15, 27, 10));
-console.log(add(10, 20, 30));
-console.log(add(5, 10, 15));
+    return { hours, mins, secs };
+  }
