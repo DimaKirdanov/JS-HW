@@ -1,12 +1,8 @@
-function run(horse) {
-  return new Promise((resolve) => {
-    const time = getRandomTime(1000, 1500);
-    setTimeout(() => {
-      resolve({horse, time});
-    }, time);
-  })
-}
-run('Манго').then(x => console.log(x));
-function getRandomTime(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+const pokemon = fetch('https://restcountries.com/v3.1/name/peru').then(response => { 
+ 
+  return response.json();
+}).then(pokemon => { 
+  console.log(pokemon)
+}).catch(error => { 
+  console.log(error);
+});
